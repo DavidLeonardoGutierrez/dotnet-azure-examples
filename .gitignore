@@ -353,3 +353,5 @@ MigrationBackup/
 */.terraform/*
 *.lock.*
 *.0_x5
+cosmosdb/terraform/terraform.tfstate
+cosmosdb/terraform/terraform.tfstate.backup
