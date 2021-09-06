@@ -1,29 +1,17 @@
-﻿using System;
-using Microsoft.Extensions.Logging;
-using Serilog;
-using Serilog.Extensions.Logging;
-using Serilog.Sinks.SystemConsole.Themes;
+﻿using Autofac;
+using Azure.Cosmos.Services;
 
-namespace Azure.Cosmosdb
+namespace Azure.Cosmos
 {
     public class Program
     {
         static void Main(string[] args)
         {
-            var logger = BuildLogger();
-
-            logger.LogInformation("Hello from dotnet core");
-        }
-
-        private static Microsoft.Extensions.Logging.ILogger BuildLogger()
-        {
-            var serilogLogger = new LoggerConfiguration()
-                .WriteTo.Console(theme: AnsiConsoleTheme.Code)
-                .CreateLogger();
-
-                var loggerFactory = new SerilogLoggerProvider(serilogLogger);
-
-                return loggerFactory.CreateLogger("CosmosDb Example");
+            new ContainerBuilder()
+            .RegisterDependencies()
+            .Build()
+            .Resolve<IExecutionService>()
+            .ExecuteAlgorithm();
         }
     }
 }
