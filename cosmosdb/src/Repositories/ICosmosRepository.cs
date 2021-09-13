@@ -1,17 +1,16 @@
+using System.Threading.Tasks;
+using Microsoft.Azure.Cosmos;
+
 namespace Azure.Cosmos.Repositories
 {
-    public interface ICosmosRepository
+    public interface ICosmosRepository<T>
     {
-        void CreateDataBase();
+        void Insert(object item);
 
-        void DeleteDataBase();
+        void Update(object item);
 
-        void Insert(string data);
+        void Delete(string id, PartitionKey partitionKey);
 
-        void Update(string id, string data);
-
-        void Delete(string id);
-
-        string GetData(string id);
+        void GetData(object item);
     }
 }
