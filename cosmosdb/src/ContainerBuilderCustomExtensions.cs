@@ -43,7 +43,7 @@ namespace Autofac
         {
             containerBuilder.Register(_ => 
             {
-                var connectionString = "";//TODO: Refactor this to use keyvault
+                var connectionString = "AccountEndpoint=https://dotnetcosmosdb0242a.documents.azure.com:443/;AccountKey=EEyAZiyka1aHzZE00wWhVhJgmH2Kn8nQGtcW9Y59VQ0cm7GQKPLWNtNVwEC0KwHYEz1OSaSp7u6uLfdXu052XQ==;";//TODO: Refactor this to use keyvault
                 return new CosmosClient(connectionString);
             });
         }

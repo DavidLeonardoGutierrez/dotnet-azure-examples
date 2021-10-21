@@ -32,3 +32,8 @@ variable "keyvault_name" {
   type    = string
   default = "dotnetcosmoskeyvault"
 }
+
+variable "container_registry_name" {
+  type    = string
+  default = "cloudpracticescontainerregistry01"
+}
